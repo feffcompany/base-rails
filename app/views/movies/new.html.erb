@@ -9,21 +9,14 @@
     <%= label_tag :title %>
 
     <%= text_field_tag :title, @movie.title, { id: "title_box" } %> 
-
-    
   </div>
 
   <div>
-    <label for="description_box">
-      Description
-    </label>
+    <%= label_tag :description %>
 
     <%= text_area_tag :description, @movie.description, { id: "description_box"} %>
-
   </div>
-
-
+ 
   <%= button_tag "Create movie" %>
-  
 <% end %>
 
