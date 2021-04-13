@@ -10,7 +10,7 @@
 
     <%= text_field_tag :query_title, @the_movie.title, { id: "title_box" } %> 
 
-    <input type="text" id="title_box" name="query_title" value="<%= @the_movie.title %>">
+    
   </div>
 
   <div>
@@ -18,13 +18,12 @@
       Description
     </label>
 
-    <textarea id="description_box" name="query_description" rows="3"><%= @the_movie.description %></textarea>
+    <%= text_area_tag :query_description, @the_movie.description, { id: "description_box"} %>
+
   </div>
 
-  <button>
-    Create movie
-  </button>
+
+  <%= button_tag "Create movie" %>
   
 <% end %>
 
-</form>
