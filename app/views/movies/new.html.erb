@@ -8,7 +8,7 @@
   <div>
     <%= label_tag :title %>
 
-    <%= text_field_tag :title, @movie.title, { id: "title_box" } %> 
+    <%= text_field_tag "movie[title]", @movie.title %> 
   </div>
 
   <div>
