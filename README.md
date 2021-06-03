@@ -1,7 +1,5 @@
-# Base Rails
+# Final - Arcades 
 
-## Standard Workflow
+### This is an app that will list local Arcades and the games that they have.  Users will be able to create favorites and added comments.  
 
- 1. Start the web server by running `bin/server`.
- 1. Navigate to your live application.
- 1. As you work, remember to navigate to `/git` and **commit often as you work.**
+### Note - I originally hoped to add native app components to this project, but ran out of time.
