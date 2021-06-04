@@ -6,7 +6,8 @@
 #  comments_count         :integer          default(0)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  favorite_count         :integer          default(0)
+#  favorites_count        :integer          default(0)
+#  name                   :string
 #  private                :boolean
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
@@ -26,4 +27,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :comments, foreign_key: :author_id, dependent: :destroy
+
+  has_many :favorites, foreign_key: :fan_id, dependent: :destroy
+
+  has_many :own_arcades, foreign_key: :owner_id, class_name: "Arcade", dependent: :destroy
+
+  has_many :favorited_games, through: :favorites, source: :game
+
 end
