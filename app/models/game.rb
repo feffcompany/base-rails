@@ -11,7 +11,7 @@
 #  updated_at      :datetime         not null
 #
 class Game < ApplicationRecord
-    has_many :fans, through: :favorites
+  has_many :fans, through: :favorites
 
   has_many :machines, dependent: :destroy
 

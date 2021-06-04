@@ -20,5 +20,12 @@
   <%= @arcade.owner_id %>
 </p>
 
+<p>
+  <strong>Games:</strong>
+  <%= @arcade.machines.each do |machine| %>
+    <%= render "machines/machine", machine: machine %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_arcade_path(@arcade) %> |
 <%= link_to 'Back', arcades_path %>
