@@ -19,7 +19,7 @@
         <td><%= arcade.name %></td>
         <td><%= arcade.address %></td>
         <td><%= arcade.comments_count %></td>
-        <td><%= arcade.owner_id %></td>
+        <td><%= arcade.owner.name %></td>
         <td><%= link_to 'Show', arcade %></td>
         <td><%= link_to 'Edit', edit_arcade_path(arcade) %></td>
         <td><%= link_to 'Destroy', arcade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
