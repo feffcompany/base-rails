@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: arcades
+#
+#  id             :bigint           not null, primary key
+#  name           :string
+#  address        :text
+#  comments_count :integer
+#  owner_id       :bigint           not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+one:
+  name: MyString
+  address: MyText
+  comments_count: 1
+  owner: one
+
+two:
+  name: MyString
+  address: MyText
+  comments_count: 1
+  owner: two
