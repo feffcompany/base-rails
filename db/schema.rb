@@ -10,10 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_144326) do
+ActiveRecord::Schema.define(version: 2021_06_04_145000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "arcades", force: :cascade do |t|
+    t.string "name"
+    t.text "address"
+    t.bigint "owner_id", null: false
+    t.integer "comments_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_arcades_on_owner_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "arcade_id", null: false
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["arcade_id"], name: "index_comments_on_arcade_id"
+    t.index ["author_id"], name: "index_comments_on_author_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "fan_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fan_id"], name: "index_favorites_on_fan_id"
+    t.index ["game_id"], name: "index_favorites_on_game_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "release_date"
+    t.integer "favorites_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "machines", force: :cascade do |t|
+    t.bigint "arcade_id", null: false
+    t.bigint "game_id", null: false
+    t.integer "number_of_machines"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["arcade_id"], name: "index_machines_on_arcade_id"
+    t.index ["game_id"], name: "index_machines_on_game_id"
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -40,4 +88,11 @@ ActiveRecord::Schema.define(version: 2021_06_04_144326) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "arcades", "users", column: "owner_id"
+  add_foreign_key "comments", "arcades"
+  add_foreign_key "comments", "users", column: "author_id"
+  add_foreign_key "favorites", "games"
+  add_foreign_key "favorites", "users", column: "fan_id"
+  add_foreign_key "machines", "arcades"
+  add_foreign_key "machines", "games"
 end

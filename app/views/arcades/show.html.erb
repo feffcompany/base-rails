@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comments count:</strong>
+  <%= @arcade.comments_count %>
+</p>
+
+<%= link_to 'Edit', edit_arcade_path(@arcade) %> |
+<%= link_to 'Back', arcades_path %>

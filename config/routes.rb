@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :machines
+  resources :favorites
+  resources :comments
+  resources :arcades
+  resources :games
   devise_for :users
 #   get "/", controller: "movies", action: "index"
   
