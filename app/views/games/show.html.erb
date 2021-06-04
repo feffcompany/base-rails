@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Favorites count:</strong>
-  <%= @game.favorites_count %>
+  <strong>Title:</strong>
+  <%= @game.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @game.description %>
+</p>
+
+<p>
+  <strong>Release date:</strong>
+  <%= @game.release_date %>
 </p>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |

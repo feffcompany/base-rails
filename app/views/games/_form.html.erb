@@ -1,10 +1,10 @@
-<%= form_with(model: arcade, local: true) do |form| %>
-  <% if arcade.errors.any? %>
+<%= form_with(model: game, local: true) do |form| %>
+  <% if game.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(arcade.errors.count, "error") %> prohibited this arcade from being saved:</h2>
+      <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
 
       <ul>
-        <% arcade.errors.full_messages.each do |message| %>
+        <% game.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -12,13 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :release_date %>
+    <%= form.text_field :release_date %>
   </div>
 
   <div class="actions">
