@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Comments count:</strong>
-  <%= @arcade.comments_count %>
+  <strong>Name:</strong>
+  <%= @arcade.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @arcade.address %>
 </p>
 
 <%= link_to 'Edit', edit_arcade_path(@arcade) %> |

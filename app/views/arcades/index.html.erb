@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Comments count</th>
+      <th>Name</th>
+      <th>Address</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +14,8 @@
   <tbody>
     <% @arcades.each do |arcade| %>
       <tr>
-        <td><%= arcade.comments_count %></td>
+        <td><%= arcade.name %></td>
+        <td><%= arcade.address %></td>
         <td><%= link_to 'Show', arcade %></td>
         <td><%= link_to 'Edit', edit_arcade_path(arcade) %></td>
         <td><%= link_to 'Destroy', arcade, method: :delete, data: { confirm: 'Are you sure?' } %></td>

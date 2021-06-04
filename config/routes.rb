@@ -1,32 +1,14 @@
 Rails.application.routes.draw do
+  root "arcades#index"
+
+  # devise_for :users
+
   resources :machines
   resources :favorites
   resources :comments
   resources :arcades
   resources :games
-  devise_for :users
-#   get "/", controller: "movies", action: "index"
   
-#   get "/" => "movies#index"
-
-  root "movies#index"
-
-  # Routes for the Movie resource:
-
-  # CREATE
-  post "/movies" => "movies#create", as: :movies # movies_url and movies_path
-  get "/movies/new" => "movies#new", as: :new_movie # new_movie_url and new_movie_path
-        
-  # READ
-  get "/movies" => "movies#index"
-  get "/movies/:id" => "movies#show", as: :movie # movie_path() (expects an argument to populate :id segment)
-  
-  # UPDATE
-  patch "/movies/:id" => "movies#update"
-  get "/movies/:id/edit" => "movies#edit", as: :edit_movie # edit_movie_path() (expects an argument to populate :id segment)
-  
-  # DELETE
-  delete "/movies/:id" => "movies#destroy"
-
-  #------------------------------
+  get ":username" => "users#show", as: :user
+  get ":username/feed" => "users#feed", as: :feed
 end
